@@ -10,7 +10,29 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': { // 请求的代称，写在Axios里的BaseUrl
+        target: 'https://www.easy-mock.com/mock/5e9f7ecbf7627b3e9778ed37',  // 真实请求URl
+        changeOrigin: true // 允许跨域
+        // pathRewrite: {  // 替换，通配/api的替换成/
+        //   '^/api': '/'
+        // }
+      },
+      '/user': { // 请求的代称，写在Axios里的BaseUrl
+        target: 'http://192.168.2.101:9000',  // 真实请求URl
+        changeOrigin: true,
+        // pathRewrite: {  // 替换，通配/api的替换成/
+        //   '^/api': '/'
+        // }
+      },
+      '/goods': { // 请求的代称，写在Axios里的BaseUrl
+        target: 'http://192.168.2.101:9000',  // 真实请求URl
+        changeOrigin: true,
+        // pathRewrite: {  // 替换，通配/api的替换成/
+        //   '^/api': '/'
+        // }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
